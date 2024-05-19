@@ -1,3 +1,4 @@
+import Player from './components/Player';
 import Sidebar from './components/Sidebar';
 
 export default function App() {
@@ -6,6 +7,7 @@ export default function App() {
       <div className='h-[90%] flex'>
         <Sidebar />
       </div>
+      <Player />
     </div>
   );
 }
