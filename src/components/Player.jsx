@@ -46,6 +46,16 @@ function Player() {
           <p>3:06</p>
         </div>
       </div>
+      <div className='hidden lg:flex items-center gap-2 opacity-75'>
+        <img src={assets.play_icon} alt='play_icon' className='w-4' />
+        <img src={assets.mic_icon} alt='mic_icon' className='w-4' />
+        <img src={assets.queue_icon} alt='queue_icon' className='w-4' />
+        <img src={assets.speaker_icon} alt='speaker_icon' className='w-4' />
+        <img src={assets.volume_icon} alt='volume_icon' className='w-4' />
+        <div className='w-20 bg-slate-50 h-1 rounded'></div>
+        <img src={assets.mini_player_icon} alt='mini_player' className='w-4' />
+        <img src={assets.zoom_icon} alt='zoom_icon' className='w-4' />
+      </div>
     </div>
   );
 }
