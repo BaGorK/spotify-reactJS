@@ -1,5 +1,11 @@
+import Sidebar from './components/Sidebar';
+
 export default function App() {
   return (
-    <h1 className='text-3xl font-bold text-red-600 underline'>Hello world!</h1>
+    <div className='h-screen bg-black '>
+      <div className='h-[90%] flex'>
+        <Sidebar />
+      </div>
+    </div>
   );
 }
