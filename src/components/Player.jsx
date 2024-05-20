@@ -2,7 +2,7 @@ import { assets, songsData } from '../assets/assets';
 import { usePlayerContext } from '../context/PlayerContext';
 
 function Player() {
-  const { seekBg, seekBar } = usePlayerContext();
+  const { seekBg, seekBar, playStatus, play, pause } = usePlayerContext();
 
   return (
     <div className='h-[10%] bg-black flex justify-between items-center text-white px-4'>
@@ -25,11 +25,21 @@ function Player() {
             src={assets.prev_icon}
             alt='shuffle icon'
           />
-          <img
-            className='w-4 cursor-pointer'
-            src={assets.play_icon}
-            alt='shuffle icon'
-          />
+          {playStatus ? (
+            <img
+              onClick={pause}
+              className='w-4 cursor-pointer'
+              src={assets.pause_icon}
+              alt='shuffle icon'
+            />
+          ) : (
+            <img
+              onClick={play}
+              className='w-4 cursor-pointer'
+              src={assets.play_icon}
+              alt='shuffle icon'
+            />
+          )}
           <img
             className='w-4 cursor-pointer'
             src={assets.next_icon}

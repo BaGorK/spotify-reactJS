@@ -23,6 +23,16 @@ export default function PlayerContextProvider({ children }) {
     },
   });
 
+  const play = () => {
+    audioRef.current.play();
+    setPlayStatus(true);
+  };
+
+  const pause = () => {
+    audioRef.current.pause();
+    setPlayStatus(false);
+  };
+
   const contextValue = {
     audioRef,
     seekBg,
@@ -33,6 +43,8 @@ export default function PlayerContextProvider({ children }) {
     setPlayStatus,
     time,
     setTime,
+    play,
+    pause,
   };
 
   return (
