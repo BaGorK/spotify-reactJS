@@ -12,6 +12,7 @@ function Player() {
     time,
     previous,
     next,
+    seekSong,
   } = usePlayerContext();
 
   return (
@@ -67,6 +68,7 @@ function Player() {
           <p>{`${time.currentTime.minute}:${time.currentTime.second}`}</p>
           <div
             ref={seekBg}
+            onClick={(e) => seekSong(e)}
             className='w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursor-pointer'
           >
             <hr
