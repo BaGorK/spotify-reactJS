@@ -33,6 +33,12 @@ export default function PlayerContextProvider({ children }) {
     setPlayStatus(false);
   };
 
+  const playWithId = async (id) => {
+    await setTrack(songsData[id]);
+    await audioRef.current.play();
+    setPlayStatus(true);
+  };
+
   useEffect(() => {
     setTimeout(() => {
       audioRef.current.ontimeupdate = () => {
@@ -66,6 +72,7 @@ export default function PlayerContextProvider({ children }) {
     setTime,
     play,
     pause,
+    playWithId,
   };
 
   return (
