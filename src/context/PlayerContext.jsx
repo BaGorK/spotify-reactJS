@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useRef, useState } from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { songsData } from '../assets/assets';
 
 const PlayerContext = createContext();
@@ -32,6 +32,23 @@ export default function PlayerContextProvider({ children }) {
     audioRef.current.pause();
     setPlayStatus(false);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      audioRef.current.ontimeupdate = () => {
+        setTime({
+          currentTime: {
+            second: Math.floor(audioRef.current.currentTime % 60),
+            minute: Math.floor(audioRef.current.currentTime / 60),
+          },
+          totalTime: {
+            second: Math.floor(audioRef.current.duration % 60),
+            minute: Math.floor(audioRef.current.duration / 60),
+          },
+        });
+      };
+    }, 1000);
+  }, [audioRef]);
 
   const contextValue = {
     audioRef,
